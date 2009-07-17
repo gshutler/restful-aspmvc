@@ -21,7 +21,7 @@
     <form action="/Users/2" method="post">
         <input type="hidden" name="_verb" value="PUT" />
         <p>        
-            <input type="submit" value="Edit" />        
+            <input type="submit" value="Update" />        
         </p>
     </form>
     
