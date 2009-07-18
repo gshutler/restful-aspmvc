@@ -7,11 +7,11 @@ using System.Web.Routing;
 using Moq;
 using NUnit.Framework;
 
-namespace RESTfulMVC.Test
+namespace RESTfulMVC.Test.Routes
 {
     public static class RouteTestHelper
     {
-        public static void Maps(this RouteCollection routes, string httpVerb, string url, object expectations)
+        public static void Map(this RouteCollection routes, string httpVerb, string url, object expectations)
         {
             var routeData = RetrieveRouteData(routes, httpVerb, url);
             Assert.IsNotNull(routeData, "Should have found the route");

@@ -2,7 +2,7 @@
 using System.Linq;
 using System.Web.Mvc;
 
-namespace RESTfulMVC.Controllers
+namespace PostOverloading.Controllers
 {
     [HandleError]
     public class HomeController : Controller

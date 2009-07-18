@@ -22,19 +22,31 @@ namespace RESTfulMVC.Test.Routes
         [Then]
         public void ResourceCollectionsHaveIndexAsTheDefaultAction()
         {
-            routes.Maps("GET", "~/Users", new { controller = "Users", action = "Index" });
+            routes.Map("GET", "~/Users", new { controller = "Users", action = "Index" });
         }
 
         [Then]
         public void IndividualResourcesHaveIndexAsTheDefaultAction()
         {
-            routes.Maps("GET", "~/Users/2", new { controller = "Users", action = "Index", id = "2" });
+            routes.Map("GET", "~/Users/2", new { controller = "Users", action = "Index", id = "2" });
         }
 
         [Then]
         public void ResourceCollectionsCanHaveCustomViews()
         {
-            routes.Maps("GET", "~/Users/Recent", new { controller = "Users", action = "Recent" });
+            routes.Map("GET", "~/Users/Recent", new { controller = "Users", action = "Recent" });
+        }
+
+        [Then]
+        public void ResourceCollectionsDoNotAcceptPuts()
+        {
+            routes.DoNotMap("PUT", "~/Users");
+        }
+
+        [Then]
+        public void ResourceCollectionsDoNotAcceptDeletes()
+        {
+            routes.DoNotMap("DELETE", "~/Users");
         }
 
         [Then]
@@ -46,7 +58,7 @@ namespace RESTfulMVC.Test.Routes
         [Then]
         public void IndividualResourcesCanHaveCustomViews()
         {
-            routes.Maps("GET", "~/Users/7/Search", new { controller = "Users", action = "Search", id = "7" });
+            routes.Map("GET", "~/Users/7/Search", new { controller = "Users", action = "Search", id = "7" });
         }
 
         [Then]

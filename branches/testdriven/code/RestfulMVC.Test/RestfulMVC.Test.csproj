@@ -52,11 +52,20 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ActionTranslation\DeletingAResource.cs" />
+    <Compile Include="ActionTranslation\DeletingAResourceViaOverloadedPost.cs" />
+    <Compile Include="ActionTranslation\GettingACollection.cs" />
+    <Compile Include="ActionTranslation\GettingAResource.cs" />
+    <Compile Include="ActionTranslation\GettingAViewOfACollection.cs" />
+    <Compile Include="ActionTranslation\GettingAViewOfAResource.cs" />
+    <Compile Include="ActionTranslation\PostingToACollection.cs" />
+    <Compile Include="ActionTranslation\PuttingAResource.cs" />
+    <Compile Include="ActionTranslation\PuttingAResourceViaOverloadedPost.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Routes\WhenRoutesHaveBeenRegistered.cs" />
     <Compile Include="Test.cs" />
     <Compile Include="TestExtensions.cs" />
-    <Compile Include="RouteTestHelper.cs" />
+    <Compile Include="Routes\RouteTestHelper.cs" />
     <Compile Include="ThenAttribute.cs" />
   </ItemGroup>
   <ItemGroup>

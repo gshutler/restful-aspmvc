@@ -2,7 +2,7 @@ using System;
 using System.Linq;
 using System.Web.Mvc;
 
-namespace RESTfulMVC.Controllers
+namespace PostOverloading.Controllers
 {
     public class UsersController : Controller
     {

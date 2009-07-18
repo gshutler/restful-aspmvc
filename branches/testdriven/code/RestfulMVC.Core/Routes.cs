@@ -21,8 +21,8 @@ namespace RESTfulMVC.Core
             routes.MapRoute(
                 "Restful resource",
                 "{controller}/{id}",
-                new {action = "Index"},
-                new {id = @"\d+"} // id must be numeric
+                new { action = "Index" },
+                new { id = @"\d+" } // id must be numeric
             );
 
             routes.MapRoute(
@@ -35,7 +35,8 @@ namespace RESTfulMVC.Core
             routes.MapRoute(
                 "Restful collection",
                 "{controller}",
-                new { action = "Index" }
+                new { action = "Index" },
+                new { httpMethod = new HttpMethodConstraint("GET", "POST") }
             );
         }
     }
