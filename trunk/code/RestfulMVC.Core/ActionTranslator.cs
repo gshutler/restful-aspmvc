@@ -6,31 +6,26 @@ namespace RESTfulMVC.Core
 {
     public class ActionTranslator : IActionTranslator
     {
-        public string DetermineActionName(string httpVerb, NameValueCollection form, RouteValueDictionary routeValues)
+        public string DetermineActionName(string httpMethod, NameValueCollection form, RouteValueDictionary routeValues)
         {
-            if (ContainsAnId(routeValues)) return DetermineResourceAction(httpVerb, form, routeValues);
-            return DetermineCollectionAction(httpVerb, routeValues);
+            if (ContainsAnId(routeValues)) return DetermineResourceAction(httpMethod, form, routeValues);
+            return DetermineCollectionAction(httpMethod, routeValues);
         }
 
-        private static string DetermineCollectionAction(string httpVerb, RouteValueDictionary routeValues)
+        private static string DetermineCollectionAction(string httpMethod, RouteValueDictionary routeValues)
         {
-            if (httpVerb == "GET") return routeValues["action"].ToString();
+            if (httpMethod == "GET") return routeValues["action"].ToString();
             return "Create";
         }
 
-        private static string DetermineResourceAction(string httpVerb, NameValueCollection form, RouteValueDictionary dictionary)
+        private static string DetermineResourceAction(string httpMethod, NameValueCollection form, RouteValueDictionary dictionary)
         {
-            if (httpVerb == "POST") httpVerb = PostOverloadVerb(form);
+            if (httpMethod == "POST") httpMethod = form[Constants.PostOverloadInputName];
 
-            if (httpVerb == "DELETE") return "Destroy";
-            if (httpVerb == "PUT") return "Update";
+            if (httpMethod == "DELETE") return "Destroy";
+            if (httpMethod == "PUT") return "Update";
             if (dictionary["action"].ToString() == "Index") return "Show";
             return dictionary["action"].ToString();
-        }
-
-        private static string PostOverloadVerb(NameValueCollection form)
-        {
-            return form["__verb"];
         }
 
         private static bool ContainsAnId(RouteValueDictionary routeValues)
