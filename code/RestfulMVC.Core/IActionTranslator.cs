@@ -5,6 +5,6 @@ namespace RESTfulMVC.Core
 {
     public interface IActionTranslator
     {
-        string DetermineActionName(string httpVerb, NameValueCollection form, RouteValueDictionary routeValues);
+        string DetermineActionName(string httpMethod, NameValueCollection form, RouteValueDictionary routeValues);
     }
 }

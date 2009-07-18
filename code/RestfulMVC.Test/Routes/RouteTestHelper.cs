@@ -11,9 +11,9 @@ namespace RESTfulMVC.Test.Routes
 {
     public static class RouteTestHelper
     {
-        public static void Map(this RouteCollection routes, string httpVerb, string url, object expectations)
+        public static void Map(this RouteCollection routes, string httpMethod, string url, object expectations)
         {
-            var routeData = RetrieveRouteData(routes, httpVerb, url);
+            var routeData = RetrieveRouteData(routes, httpMethod, url);
             Assert.IsNotNull(routeData, "Should have found the route");
 
             foreach (PropertyValue property in GetProperties(expectations))
@@ -23,17 +23,17 @@ namespace RESTfulMVC.Test.Routes
             }
         }
 
-        public static void DoNotMap(this RouteCollection routes, string httpVerb, string url)
+        public static void DoNotMap(this RouteCollection routes, string httpMethod, string url)
         {
-            var routeData = RetrieveRouteData(routes, httpVerb, url);
+            var routeData = RetrieveRouteData(routes, httpMethod, url);
             Assert.IsNull(routeData, "Should not find a route");
         }
 
-        private static RouteData RetrieveRouteData(RouteCollection routes, string httpVerb, string url)
+        private static RouteData RetrieveRouteData(RouteCollection routes, string httpMethod, string url)
         {
             var httpContext = new Mock<HttpContextBase>();
             httpContext.Setup(c => c.Request.AppRelativeCurrentExecutionFilePath).Returns(url);
-            httpContext.Setup(c => c.Request.HttpMethod).Returns(httpVerb);
+            httpContext.Setup(c => c.Request.HttpMethod).Returns(httpMethod);
 
             return routes.GetRouteData(httpContext.Object);
         }

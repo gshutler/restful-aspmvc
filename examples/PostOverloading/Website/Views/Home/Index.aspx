@@ -11,7 +11,7 @@
     
     <h3>DELETE /Users/2</h3>
     <form action="/Users/2" method="post">
-        <input type="hidden" name="__verb" value="DELETE" />
+        <input type="hidden" name="_method" value="DELETE" />
         <p>        
             <input type="submit" value="Delete" />        
         </p>
@@ -19,7 +19,7 @@
     
     <h3>PUT /Users/2</h3>
     <form action="/Users/2" method="post">
-        <input type="hidden" name="__verb" value="PUT" />
+        <input type="hidden" name="_method" value="PUT" />
         <p>        
             <input type="submit" value="Update" />        
         </p>

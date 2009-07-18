@@ -49,6 +49,7 @@
   <ItemGroup>
     <Compile Include="ActionInvoker.cs" />
     <Compile Include="ActionTranslator.cs" />
+    <Compile Include="Constants.cs" />
     <Compile Include="ControllerFactory.cs" />
     <Compile Include="IActionTranslator.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

@@ -17,7 +17,7 @@ namespace RESTfulMVC.Test.ActionTranslation
         protected override void Given()
         {
             routeValues = new RouteValueDictionary { { "action", "Index" }, { "id", "5" } };
-            form = new NameValueCollection { { "__verb", "PUT" }};
+            form = new NameValueCollection { { Constants.PostOverloadInputName, "PUT" } };
 
             translator = new ActionTranslator();
         }
