@@ -7,7 +7,7 @@ using System.Web.Routing;
 using Moq;
 using NUnit.Framework;
 
-namespace RESTfulMVC.Test.Routes
+namespace RESTfulMVC.Test.Routing
 {
     public static class RouteTestHelper
     {

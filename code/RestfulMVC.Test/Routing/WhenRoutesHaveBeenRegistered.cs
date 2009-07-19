@@ -2,7 +2,7 @@ using System;
 using System.Web.Routing;
 using NUnit.Framework;
 
-namespace RESTfulMVC.Test.Routes
+namespace RESTfulMVC.Test.Routing
 {
     [TestFixture]
     public class WhenRoutesHaveBeenRegistered : Test
