@@ -43,6 +43,7 @@
     <Reference Include="System.Core">
       <RequiredTargetFramework>3.5</RequiredTargetFramework>
     </Reference>
+    <Reference Include="System.Web" />
     <Reference Include="System.Web.Abstractions">
       <RequiredTargetFramework>3.5</RequiredTargetFramework>
     </Reference>
@@ -61,11 +62,15 @@
     <Compile Include="ActionTranslation\PostingToACollection.cs" />
     <Compile Include="ActionTranslation\PuttingAResource.cs" />
     <Compile Include="ActionTranslation\PuttingAResourceViaOverloadedPost.cs" />
+    <Compile Include="FormGeneration\DeleteAResource.cs" />
+    <Compile Include="FormGeneration\PostToACollection.cs" />
+    <Compile Include="FormGeneration\PutToAResource.cs" />
+    <Compile Include="FormGeneration\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Routes\WhenRoutesHaveBeenRegistered.cs" />
+    <Compile Include="Routing\WhenRoutesHaveBeenRegistered.cs" />
     <Compile Include="Test.cs" />
     <Compile Include="TestExtensions.cs" />
-    <Compile Include="Routes\RouteTestHelper.cs" />
+    <Compile Include="Routing\RouteTestHelper.cs" />
     <Compile Include="ThenAttribute.cs" />
   </ItemGroup>
   <ItemGroup>

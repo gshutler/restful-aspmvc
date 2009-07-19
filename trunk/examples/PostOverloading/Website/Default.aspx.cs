@@ -2,7 +2,7 @@
 using System.Web.Mvc;
 using System.Web.UI;
 
-namespace RESTfulMVC
+namespace PostOverloading
 {
     public partial class _Default : Page
     {
