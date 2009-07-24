@@ -1,5 +1,4 @@
 using System;
-using System.Collections.Specialized;
 using System.Web.Routing;
 using NUnit.Framework;
 using RESTfulMVC.Core;
@@ -11,20 +10,17 @@ namespace RESTfulMVC.Test.ActionTranslation
     {
         private ActionTranslator translator;
         private string actionName;
-        private NameValueCollection form;
         private RouteValueDictionary routeValues;
 
         protected override void Given()
         {
-            routeValues = new RouteValueDictionary { { "action", "Index" }, { "id", "5" } };
-            form = new NameValueCollection { { Constants.PostOverloadInputName, "DELETE" } };
-
+            routeValues = new RouteValueDictionary { { "action", "Index" }, { "id", "5" }, { "methodOverload", "DELETE" } };
             translator = new ActionTranslator();
         }
 
         protected override void When()
         {
-            actionName = translator.DetermineActionName("POST", form, routeValues);
+            actionName = translator.DetermineActionName("POST", routeValues);
         }
 
         [Then]

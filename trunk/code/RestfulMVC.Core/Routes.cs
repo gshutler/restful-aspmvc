@@ -19,10 +19,26 @@ namespace RESTfulMVC.Core
             );
 
             routes.MapRoute(
+                "Restful resource post overload",
+                "{controller}/{id}!{methodOverload}",
+                new { action = "Index" },
+                new
+                {
+                    httpMethod = new HttpMethodConstraint("POST"),
+                    id = @"\d+", // id must be numeric
+                    methodOverload = @"PUT|DELETE"
+                }
+            );
+
+            routes.MapRoute(
                 "Restful resource",
                 "{controller}/{id}",
                 new { action = "Index" },
-                new { id = @"\d+" } // id must be numeric
+                new
+                {
+                    httpMethod = new HttpMethodConstraint("GET", "PUT", "DELETE"),
+                    id = @"\d+" // id must be numeric
+                } 
             );
 
             routes.MapRoute(

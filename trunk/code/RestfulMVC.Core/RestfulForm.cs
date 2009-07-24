@@ -25,8 +25,7 @@ namespace RESTfulMVC.Core
         {
             var resourceName = typeof(TResource).Name;
 
-            return string.Format("<form action=\"/{0}/{1}\" method=\"POST\">" +
-                "<input type=\"hidden\" name=\"_method\" value=\"{2}\" />", Inflector.Net.Inflector.Pluralize(resourceName), IdFrom(resource), httpMethod);
+            return string.Format("<form action=\"/{0}/{1}!{2}\" method=\"POST\">", Inflector.Net.Inflector.Pluralize(resourceName), IdFrom(resource), httpMethod);
         }
 
         private static int IdFrom<TResource>(TResource resource)

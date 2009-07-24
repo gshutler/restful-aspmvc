@@ -16,7 +16,7 @@ namespace RESTfulMVC.Core
             var request = controllerContext.HttpContext.Request;
             var routeValues = controllerContext.RouteData.Values;
 
-            var translatedActionName = actionTranslator.DetermineActionName(request.HttpMethod, request.Form, routeValues);
+            var translatedActionName = actionTranslator.DetermineActionName(request.HttpMethod, routeValues);
 
             return base.InvokeAction(controllerContext, translatedActionName);
         }

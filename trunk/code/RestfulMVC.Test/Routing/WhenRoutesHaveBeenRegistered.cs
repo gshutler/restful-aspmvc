@@ -32,6 +32,30 @@ namespace RESTfulMVC.Test.Routing
         }
 
         [Then]
+        public void IndividualResourcesCanAcceptPutViaOverloadedPost()
+        {
+            routes.Map("POST", "~/Users/4!PUT", new { controller = "Users", action = "Index", methodOverload = "PUT"});
+        }
+
+        [Then]
+        public void IndividualResourcesCanAcceptDeleteViaOverloadedPost()
+        {
+            routes.Map("POST", "~/Users/4!DELETE", new { controller = "Users", action = "Index", methodOverload = "DELETE" });
+        }
+
+        [Then]
+        public void IndividualResourcesWillNotAcceptNonsenseAsAPostOverload()
+        {
+            routes.DoNotMap("POST", "~/Users/4!NONSENSE");
+        }
+
+        [Then]
+        public void IndividualResourcesDoNotAcceptPost()
+        {
+            routes.DoNotMap("POST", "~/Users/2");
+        }
+
+        [Then]
         public void ResourceCollectionsCanHaveCustomViews()
         {
             routes.Map("GET", "~/Users/Recent", new { controller = "Users", action = "Recent" });
