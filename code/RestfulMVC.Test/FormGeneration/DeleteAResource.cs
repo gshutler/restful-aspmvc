@@ -23,8 +23,7 @@ namespace RESTfulMVC.Test.FormGeneration
         [Then]
         public void CreatesTheExpectedFormTagWithAPostOverload()
         {
-            formHtml.IsEqualTo("<form action=\"/Users/9\" method=\"POST\">" +
-                "<input type=\"hidden\" name=\"_method\" value=\"DELETE\" />");
+            formHtml.IsEqualTo("<form action=\"/Users/9!DELETE\" method=\"POST\">");
         }
     }
 }

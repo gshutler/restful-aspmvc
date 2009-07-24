@@ -1,14 +1,13 @@
 using System;
-using System.Collections.Specialized;
 using System.Web.Routing;
 
 namespace RESTfulMVC.Core
 {
     public class ActionTranslator : IActionTranslator
     {
-        public string DetermineActionName(string httpMethod, NameValueCollection form, RouteValueDictionary routeValues)
+        public string DetermineActionName(string httpMethod, RouteValueDictionary routeValues)
         {
-            if (ContainsAnId(routeValues)) return DetermineResourceAction(httpMethod, form, routeValues);
+            if (ContainsAnId(routeValues)) return DetermineResourceAction(httpMethod, routeValues);
             return DetermineCollectionAction(httpMethod, routeValues);
         }
 
@@ -18,14 +17,14 @@ namespace RESTfulMVC.Core
             return "Create";
         }
 
-        private static string DetermineResourceAction(string httpMethod, NameValueCollection form, RouteValueDictionary dictionary)
+        private static string DetermineResourceAction(string httpMethod, RouteValueDictionary routeValues)
         {
-            if (httpMethod == "POST") httpMethod = form[Constants.PostOverloadInputName];
+            if (httpMethod == "POST") httpMethod = routeValues["methodOverload"].ToString();
 
             if (httpMethod == "DELETE") return "Destroy";
             if (httpMethod == "PUT") return "Update";
-            if (dictionary["action"].ToString() == "Index") return "Show";
-            return dictionary["action"].ToString();
+            if (routeValues["action"].ToString() == "Index") return "Show";
+            return routeValues["action"].ToString();
         }
 
         private static bool ContainsAnId(RouteValueDictionary routeValues)
